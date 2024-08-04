@@ -106,14 +106,14 @@ void open_file_dialog(GtkWidget *widget, gpointer data) {
     gtk_widget_hide(file_dialog);
 }
 
-void resize_advance_button(GtkWidget *widget, gpointer data) {
-    GtkWidget *button = GTK_WIDGET(data);
-    GtkAllocation allocation;
-    gtk_widget_get_allocation(widget, &allocation);
+//void resize_advance_button(GtkWidget *widget, gpointer data) {
+ //   GtkWidget *button = GTK_WIDGET(data);
+ //   GtkAllocation allocation;
+ //   gtk_widget_get_allocation(widget, &allocation);
 
-    int new_height = allocation.height * 0.25; // 25% of parent's height
-    gtk_widget_set_size_request(button, -1, new_height); // Set height and let width adjust automatically
-}
+  //  int new_height = allocation.height * 0.25; // 25% of parent's height
+   // gtk_widget_set_size_request(button, -1, new_height); // Set height and let width adjust automatically
+//}
 
 gboolean update_file_periodically(gpointer user_data) { //just a fun to call 'update_progress_bars'
     if (file_path) {
@@ -122,33 +122,33 @@ gboolean update_file_periodically(gpointer user_data) { //just a fun to call 'up
     return TRUE; // Continue calling this function
 }
 
-static void update_font_size(GtkWidget *widget, GtkAllocation *allocation, gpointer user_data) {
-    GtkCssProvider *provider = GTK_CSS_PROVIDER(user_data);
-    gchar *css;
+//static void update_font_size(GtkWidget *widget, GtkAllocation *allocation, gpointer user_data) {
+ //   GtkCssProvider *provider = GTK_CSS_PROVIDER(user_data);
+ //   gchar *css;
 
-    int font_size = allocation->width / 30;
+  //  int font_size = allocation->width / 30;
 
-    css = g_strdup_printf("* { font-size: %dpx; }", font_size);
+   // css = g_strdup_printf("* { font-size: %dpx; }", font_size);
 
-    gtk_css_provider_load_from_data(provider, css, -1, NULL);
-    g_free(css);
+   // gtk_css_provider_load_from_data(provider, css, -1, NULL);
+   // g_free(css);
 
-    GtkStyleContext *context;
+   // GtkStyleContext *context;
 
-    context = gtk_widget_get_style_context(humidity_percentage_label);
-    gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+   // context = gtk_widget_get_style_context(humidity_percentage_label);
+   // gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
-    context = gtk_widget_get_style_context(noise_percentage_label);
-    gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+   // context = gtk_widget_get_style_context(noise_percentage_label);
+   // gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
-    context = gtk_widget_get_style_context(fire_percentage_label);
-    gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+   // context = gtk_widget_get_style_context(fire_percentage_label);
+   // gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
-    context = gtk_widget_get_style_context(home_label);
-    gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
+   // context = gtk_widget_get_style_context(home_label);
+   // gtk_style_context_add_provider(context, GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
 
-}
+//}
 
 
 //batman-mode rip?
@@ -172,8 +172,8 @@ int main(int argc, char *argv[]) {
     GtkWidget *sets_tab;
     GtkWidget *arg_dark_mode;
     GtkWidget *open_url_button;
-    GtkWidget *switch_widget;
-    GtkCssProvider *provider;
+   // GtkWidget *switch_widget;
+   // GtkCssProvider *provider;
  //set_dark_mode(); should be a setting to force dark mode if the user wants to
  //   GtkSettings *settings = gtk_settings_get_default();
    // g_object_set(settings, "gtk-application-prefer-dark-theme", TRUE, NULL);
@@ -245,7 +245,7 @@ int main(int argc, char *argv[]) {
     gtk_box_pack_start(GTK_BOX(sets_tab), arg_dark_mode, TRUE, TRUE, 0);
   //  g_signal_connect(arg_dark_mode, "toggled", G_CALLBACK(on_dark_mode_toggled), NULL);
 
-    open_url_button = gtk_button_new_with_label("Check The Source Code");
+    open_url_button = gtk_button_new_with_label("Open The Source Code");
     gtk_box_pack_start(GTK_BOX(sets_tab), open_url_button, TRUE, TRUE, 0);
 
     // Connect the button click event to the callback function
