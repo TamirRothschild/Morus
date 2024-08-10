@@ -80,7 +80,7 @@ void open_default_csv() {
 void on_advance_button_clicked(GtkWidget *widget, gpointer data) {
     gboolean visible = gtk_widget_get_visible(advance_box);
     gtk_widget_set_visible(advance_box, !visible);
-    gtk_button_set_label(GTK_BUTTON(widget), visible ? "Advance?" : "Hide Advance");
+    gtk_button_set_label(GTK_BUTTON(widget), visible ? "Show Advance Options" : "Hide Advance Options");
     gtk_widget_set_visible(file_label, !visible && gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(arg_file_input_test)));
 }
 
@@ -142,18 +142,42 @@ void load_plants_from_csv(const char *plant_file) {
     char buffer[256];
     while (fgets(buffer, sizeof(buffer), file)) {
         char *name = strtok(buffer, ",");
-        char *description = strtok(NULL, "\n");
+        char *description = strtok(NULL, ",");
+        char *temperature = strtok(NULL, ",");
+        char *humidity = strtok(NULL, ",");
+        char *water = strtok(NULL, "\n");
 
         // Create main row container
         GtkWidget *vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 
-
+        // Add plant name
         GtkWidget *label = gtk_label_new(name);
         gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
 
+        // Add expander for details
         GtkWidget *details_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
+
+        // Add description
         GtkWidget *description_label = gtk_label_new(description);
         gtk_box_pack_start(GTK_BOX(details_box), description_label, TRUE, TRUE, 0);
+
+        // Add temperature
+        gchar temp_text[100];
+        snprintf(temp_text, sizeof(temp_text), "Temperature: %s", temperature);
+        GtkWidget *temp_label = gtk_label_new(temp_text);
+        gtk_box_pack_start(GTK_BOX(details_box), temp_label, TRUE, TRUE, 0);
+
+        // Add humidity
+        gchar humidity_text[100];
+        snprintf(humidity_text, sizeof(humidity_text), "Humidity: %s", humidity);
+        GtkWidget *humidity_label = gtk_label_new(humidity_text);
+        gtk_box_pack_start(GTK_BOX(details_box), humidity_label, TRUE, TRUE, 0);
+
+        // Add water requirements
+        gchar water_text[100];
+        snprintf(water_text, sizeof(water_text), "Water: %s", water);
+        GtkWidget *water_label = gtk_label_new(water_text);
+        gtk_box_pack_start(GTK_BOX(details_box), water_label, TRUE, TRUE, 0);
 
         GtkWidget *expander = gtk_expander_new("Expand");
         gtk_expander_set_expanded(GTK_EXPANDER(expander), FALSE);
@@ -165,6 +189,7 @@ void load_plants_from_csv(const char *plant_file) {
 
     fclose(file);
 }
+
 
 
 int main(int argc, char *argv[]) {
@@ -182,7 +207,7 @@ int main(int argc, char *argv[]) {
     gtk_init(&argc, &argv);
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window), "MorustestGUi-v0.3-linux");
+    gtk_window_set_title(GTK_WINDOW(window), "MorustestGUi-v0.4-linux");
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
     gtk_window_set_default_size(GTK_WINDOW(window), 500, 400);
 
@@ -233,7 +258,7 @@ int main(int argc, char *argv[]) {
     open_url_button = gtk_button_new_with_label("Open The Source Code");
     gtk_box_pack_start(GTK_BOX(sets_tab), open_url_button, FALSE, TRUE, 0);
 
-    advance_button = gtk_button_new_with_label("Wanna Get Advance?");
+    advance_button = gtk_button_new_with_label("Show Advance Options");
     g_signal_connect(advance_button, "clicked", G_CALLBACK(on_advance_button_clicked), NULL);
     gtk_box_pack_start(GTK_BOX(sets_tab), advance_button, FALSE, FALSE, 0);
 
