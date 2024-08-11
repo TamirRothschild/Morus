@@ -1,5 +1,5 @@
 # Morus 
-### agro_master 2.0 
+#### agro_master 2.0 
 <img src="https://github.com/user-attachments/assets/c0d85876-0480-4f23-b58a-eb86605e3651" alt="temp logo for the project" width="250" height="250"/>
 
 
@@ -12,7 +12,7 @@
 - Dark mode and eye burning mode
 - Easy colour indicator 
 
-### Themes
+## Themes
 <details>
 <summary><b>dark mode</b></summary>
 
@@ -41,14 +41,14 @@
 
 </details>
 
-### project goals
+## project goals
 - Make a GUI app for desktop, web and mobile
 - Make it dump prove
 - Make it easy to grow a plant
 - Grow more plants
 
 
-#### TO-DO
+## TO-DO
 - [ ] Make a GUI app for desktop (linux and windows (mac is expensive they can use the web))
 - [ ] Make a mobile app in a platform native language like flutter (iOS and android)
 - [ ] Make a better logo for the project
