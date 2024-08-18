@@ -17,13 +17,13 @@
 <summary><b>dark mode</b></summary>
 
   ###### Home
-  <img src="https://github.com/user-attachments/assets/8f1627b2-874c-4017-9106-d1d785dbdc15" alt="home screen with a dark theme" width="500" height="400"/>
+  <img src="https://github.com/user-attachments/assets/4087f755-c106-4b28-b98a-e229e6b976fc" alt="home screen with a dark theme" width="500" height="400"/>
   
   ###### Libray
-  <img src="https://github.com/user-attachments/assets/b8278836-1f13-40f0-9eb6-20a4c653b676" alt="libry screen with a dark theme" width="500" height="400"/>
+  <img src="https://github.com/user-attachments/assets/19317f1f-76c7-4557-8073-0e91b13f2090" alt="libry screen with a dark theme" width="500" height="400"/>
 
   ###### settings
-   <img src="https://github.com/user-attachments/assets/9285dace-9a92-4e43-b466-94fbd545fa6f" alt="settings screen with a dark theme" width="500" height="400"/>
+   <img src="https://github.com/user-attachments/assets/02f98da7-dd37-47a3-bf8e-35971bc4050b" alt="settings screen with a dark theme" width="500" height="400"/>
 
 </details>
 
